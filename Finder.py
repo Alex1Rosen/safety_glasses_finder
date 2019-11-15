@@ -19,12 +19,18 @@ while 1:
     for (x,y,w,h) in faces:
         face_cut = img[y:y+h, x:x+w]
         glasses_in_cut = glasses_cascade.detectMultiSCALE(face_cut, 1.3, 5)
+        counter =0
        for (ex,ey,ew,eh) in glasses_in_cut: 
+            counter = counter + 1
             cx=x+ew/2
             cy=y+eh/2
             if cx not in range(x,x+w) || cy not in range(y,y+h):
-                cv2.rectangle(img,(ex,ey),(ex+ew,ey+eh),(255,0,0),2)
+                cv2.rectangle(img,(x,y),(x+w,y+h),(255,0,0),2)
+                
+        if counter = 0:
+           cv2.rectangle(img,(x,y),(x+w,y+h),(0,255,0),2) 
         
+    
     cv2.imshow('img',img)
     k = cv2.waitKey(30) & 0xff
     if k == 27:
