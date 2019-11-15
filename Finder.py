@@ -22,13 +22,12 @@ while 1:
         counter =0
        for (ex,ey,ew,eh) in glasses_in_cut: 
             counter = counter + 1
-            cx=x+ew/2
-            cy=y+eh/2
-            if cx not in range(x,x+w) || cy not in range(y,y+h):
-                cv2.rectangle(img,(x,y),(x+w,y+h),(255,0,0),2)
+            cv2.rectangle(img,(ex,ey),(ex+ew,eye+h),(255,0,0),2)
+            print("CONGRATS! YOU ARE SAFE")
                 
-        if counter = 0:
-           cv2.rectangle(img,(x,y),(x+w,y+h),(0,255,0),2) 
+       if counter = 0:
+            cv2.rectangle(img,(x,y),(x+w,y+h),(0,255,0),2) 
+            print("PUT ON SAFETY GLASSES NOW!")
         
     
     cv2.imshow('img',img)
